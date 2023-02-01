@@ -34,9 +34,13 @@ const addTransaction = (req, res) => {
 
 const convertCurrency = async (req, res) => {
   try {
-    const cop = req.body.COP_amount;
-    const data = await convert(cop);
-    const usd = JSON.parse(data)["result"];
+    console.log("----------------");
+    const data = JSON.parse(Object.keys(req.query));
+    console.log(data);
+    console.log("----------------");
+    const cop = data.COP_amount;
+    const convertion = await convert(cop);
+    const usd = JSON.parse(convertion)["result"];
     const connection = getConnection();
     connection.query(
       `insert into transactions (COP_amount, USD_amount) values (${cop}, ${usd})`
