@@ -1,6 +1,6 @@
 # Solati Currency Converter
 
-![plot](images/Solati.png)
+![plot](images/Solatibot.png)
 
 ## src_server
 
